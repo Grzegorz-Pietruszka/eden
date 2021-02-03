@@ -1,4 +1,4 @@
-interface navigationURLs {
+interface navigationTypes {
     navbar: navigationURL[],
     sidebar: navigationURL[]
 }
@@ -8,11 +8,11 @@ interface navigationURL {
     pathURL: string
 }
 
-export const navigationURLs: navigationURLs = {
+export const navigationURLs: navigationTypes = {
     navbar: [
         {
             titleURL: 'Home',
-            pathURL: '/home'
+            pathURL: '/'
         },
         {
             titleURL: 'About',
