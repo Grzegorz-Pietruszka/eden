@@ -4,7 +4,6 @@ import Menu from "@material-ui/core/Menu";
 import {navigationURLs} from "../NavigationURL/NavigationURLs";
 import {Link} from "react-router-dom";
 import MenuItem from "@material-ui/core/MenuItem";
-import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from '@material-ui/icons/Menu';
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 
@@ -23,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const MobileMenu = ({ anchorEl, open, handleMenu, handleClose }: MobileMenuProps) => {
+const MobileMenu = ({anchorEl, open, handleMenu, handleClose}: MobileMenuProps) => {
     const classes = useStyles();
 
     return (

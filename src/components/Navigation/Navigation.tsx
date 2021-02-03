@@ -3,16 +3,17 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import MobileMenu from "./MobileMenu/MobileMenu";
-import {createStyles, makeStyles} from "@material-ui/core/styles";
+import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {useMediaQuery, useTheme} from "@material-ui/core";
-import {navigationURLs} from "./NavigationURL/NavigationURLs";
-import {Link} from "react-router-dom";
-import MenuItem from "@material-ui/core/MenuItem";
+import DesktopMenu from "./DesktopMenu/DesktopMenu";
 
-const useStyles = makeStyles(
+const useStyles = makeStyles((theme: Theme) =>
     createStyles({
             root: {
                 flexGrow: 1
+            },
+            appBar: {
+                zIndex: theme.zIndex.drawer + 1
             },
             title: {
                 flexGrow: 1,
@@ -39,7 +40,7 @@ const Navigation = () => {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar className={classes.appBar}>
                 <Toolbar>
                     <Typography variant="h6" className={classes.title}>
                         Eden
@@ -48,17 +49,8 @@ const Navigation = () => {
                         <MobileMenu anchorEl={anchorEl}
                                     handleClose={handleClose}
                                     handleMenu={handleMenu}
-                                    open={open}
-                        />
-                        :
-                        [...navigationURLs.navbar].map(link => {
-                            const {titleURL, pathURL} = link;
-                            return (
-                                <Link to={pathURL}>
-                                    <MenuItem onClick={handleClose}>{titleURL}</MenuItem>
-                                </Link>
-                            )
-                        })
+                                    open={open}/>
+                        : <DesktopMenu handleClose={handleClose}/>
                     }
                 </Toolbar>
             </AppBar>
