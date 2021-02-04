@@ -18,7 +18,7 @@ const Menu = ({isMobile, anchorEl, open, handleMenu, handleClose}: MenuProps) =>
                            handleClose={handleClose}/>
     } else {
         handleClose();
-        return <DesktopMenu handleClose={handleClose}/>
+        return <DesktopMenu />
     }
 }
 

@@ -7,7 +7,7 @@ interface desktopMenuProps {
     handleClose: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
-const DesktopMenu = ({handleClose}: desktopMenuProps) => {
+const DesktopMenu = () => {
         return (
             <>
                 {
@@ -15,7 +15,7 @@ const DesktopMenu = ({handleClose}: desktopMenuProps) => {
                         const {titleURL, pathURL} = link;
                         return (
                             <Link to={pathURL} key={index}>
-                                <MenuItem onClick={handleClose}>{titleURL}</MenuItem>
+                                <MenuItem>{titleURL}</MenuItem>
                             </Link>
                         )
                     })
