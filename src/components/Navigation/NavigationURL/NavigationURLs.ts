@@ -17,12 +17,48 @@ export const navigationURLs: navigationTypes = {
         {
             titleURL: 'About',
             pathURL: '/about'
+        },
+        {
+            titleURL: 'Your plants',
+            pathURL: '/yourplants'
+        },
+        {
+            titleURL: 'Shop',
+            pathURL: '/shop'
+        },
+        {
+            titleURL: 'Game',
+            pathURL: '/xD'
         }
     ],
     sidebar: [
         {
             titleURL: 'Plants by kingdom',
             pathURL: '/bykingdom'
+        },
+        {
+            titleURL: 'Plants by family',
+            pathURL: '/byfamily'
+        },
+        {
+            titleURL: 'Plants by family',
+            pathURL: '/byfamily'
+        },
+        {
+            titleURL: 'Plants by family',
+            pathURL: '/byfamily'
+        },
+        {
+            titleURL: 'Plants by family',
+            pathURL: '/byfamily'
+        },
+        {
+            titleURL: 'Plants by family',
+            pathURL: '/byfamily'
+        },
+        {
+            titleURL: 'Plants by family',
+            pathURL: '/byfamily'
         },
         {
             titleURL: 'Plants by family',

@@ -6,6 +6,7 @@ import MobileMenu from "./MobileMenu/MobileMenu";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import {useMediaQuery, useTheme} from "@material-ui/core";
 import DesktopMenu from "./DesktopMenu/DesktopMenu";
+import Menu from "./Menu/Menu";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -45,13 +46,11 @@ const Navigation = () => {
                     <Typography variant="h6" className={classes.title}>
                         Eden
                     </Typography>
-                    {isMobile ?
-                        <MobileMenu anchorEl={anchorEl}
-                                    handleClose={handleClose}
-                                    handleMenu={handleMenu}
-                                    open={open}/>
-                        : <DesktopMenu handleClose={handleClose}/>
-                    }
+                    <Menu isMobile={isMobile}
+                          anchorEl={anchorEl}
+                          open={open}
+                          handleMenu={handleMenu}
+                          handleClose={handleClose}/>
                 </Toolbar>
             </AppBar>
         </div>

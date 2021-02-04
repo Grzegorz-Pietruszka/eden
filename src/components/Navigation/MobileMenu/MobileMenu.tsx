@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const MobileMenu = ({anchorEl, open, handleMenu, handleClose}: MobileMenuProps) => {
     const classes = useStyles();
+    const links = [...navigationURLs.navbar, ...navigationURLs.sidebar];
 
     return (
         <div>
@@ -46,7 +47,7 @@ const MobileMenu = ({anchorEl, open, handleMenu, handleClose}: MobileMenuProps) 
                 open={open}
                 onClose={handleClose}
             >
-                {[...navigationURLs.navbar, ...navigationURLs.sidebar].map(link => {
+                {links.map(link => {
                     const {titleURL, pathURL} = link;
                     return (
                         <Link to={pathURL}>

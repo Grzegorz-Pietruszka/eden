@@ -1,18 +1,14 @@
 import React from 'react';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import {navigationURLs} from "../NavigationURL/NavigationURLs";
+import {Link} from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -40,6 +36,9 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: theme.palette.background.default,
             padding: theme.spacing(3),
         },
+        listWrapper: {
+            marginTop: '70px'
+        }
     }),
 );
 
@@ -48,7 +47,7 @@ const Sidebar = () => {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <CssBaseline/>
             <Drawer
                 className={classes.drawer}
                 variant="permanent"
@@ -57,15 +56,21 @@ const Sidebar = () => {
                 }}
                 anchor="left"
             >
-                <Divider />
-                <List>
-                    {navigationURLs.sidebar.map((link, index) => (
-                        <ListItem button key={index}>
-                            <ListItemIcon><InboxIcon />{link.titleURL}</ListItemIcon>
-                            <ListItemText primary />
-                        </ListItem>
-                    ))}
-                </List>
+                <Divider/>
+                <div className={classes.toolbar}>
+                    <List className={classes.listWrapper}>
+                        {navigationURLs.sidebar.map((link, index) => {
+                            const {pathURL, titleURL} = link;
+                            return (
+                                <ListItem button key={index}>
+                                    <Link to={pathURL}>
+                                        <ListItemIcon><InboxIcon/>{titleURL}</ListItemIcon>
+                                    </Link>
+                                </ListItem>
+                            )
+                        })}
+                    </List>
+                </div>
             </Drawer>
         </div>
     );
